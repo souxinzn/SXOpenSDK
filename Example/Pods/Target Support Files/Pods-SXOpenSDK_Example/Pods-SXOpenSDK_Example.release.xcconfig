@@ -1,0 +1,9 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../SXOpenSDK/Frameworks"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/Logan" "${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge" "${PODS_ROOT}/Headers/Public/YYModel"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket" "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/Logan" "${PODS_CONFIGURATION_BUILD_DIR}/WebViewJavascriptBridge" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel" "${PODS_ROOT}/../../SXOpenSDK/Frameworks"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"CocoaAsyncSocket" -l"FMDB" -l"Logan" -l"WebViewJavascriptBridge" -l"YYModel" -l"c++" -l"homelib" -l"sqlite3" -framework "CFNetwork" -framework "CoreFoundation" -framework "Foundation" -framework "NetworkExtension" -framework "SXIotSDK" -framework "SXUDPSDK" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

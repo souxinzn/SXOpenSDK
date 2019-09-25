@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <script src="jshandlers.js"></script>
+    <script src="function_register.js"></script>
+</head>
+<script>
+    function connectWebViewJavascriptBridge(callback) {
+        //if (window.WebViewJavascriptBridge) {
+        //    callback(WebViewJavascriptBridge)
+        //} else {
+        //    document.addEventListener(
+        //        'WebViewJavascriptBridgeReady'
+        //        , function() {
+        //            callback(WebViewJavascriptBridge)
+        //        },
+        //       false
+        //    );
+        //}
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    window.console.log = (function(oriLogFunc){
+        return function(str){
+            window.webkit.messageHandlers.log.postMessage(str);
+            oriLogFunc.call(console,str);
+        }
+    })(console.log);
+    window.console.error = (function(oriLogFunc){
+                          return function(str){
+                          window.webkit.messageHandlers.error.postMessage(str);
+                          oriLogFunc.call(console,str);
+                          }
+                          })(console.error);
+    window.onload = function(){
+        connectWebViewJavascriptBridge(function(bridge) {
+            var fnRegister = new FunctionRegister(bridge);
+        });
+    }
+    console.log("html innet test");
+</script>
+</html>

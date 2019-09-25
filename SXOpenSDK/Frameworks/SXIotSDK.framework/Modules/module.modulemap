@@ -1,0 +1,6 @@
+framework module SXIotSDK {
+  umbrella header "SXIotSDK.h"
+
+  export *
+  module * { export * }
+}
