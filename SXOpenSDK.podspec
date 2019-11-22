@@ -35,6 +35,10 @@ s.public_header_files =
 'SXOpenSDK/Frameworks/SXIotSDK.framework/Versions/A/Headers/*.h',
 'SXOpenSDK/Frameworks/SXUDPSDK.framework/Versions/A/Headers/*.h'
 
+s.source_files = 
+'SXOpenSDK/Frameworks/SXIotSDK.framework/Versions/A/Headers/*.h',
+'SXOpenSDK/Frameworks/SXUDPSDK.framework/Versions/A/Headers/*.h'
+
 s.libraries = 'c++'
 s.frameworks = 'SystemConfiguration','NetworkExtension'
 s.vendored_libraries = 'SXOpenSDK/Frameworks/libhomelib.a'
